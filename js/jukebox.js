@@ -15,16 +15,20 @@ function randomNumber() {
 }
 
 function menu() {
-  $('#menu').on('click', function(e) {
-    $('#menuOptions').html("You can play a song, pause a song, or view all the songs");
-  });
+  $('#menu').on('click', handleMenueClick);
+}
+
+function handleMenueClick(e) {
+  $('#menuOptions').html("You can play a song, pause a song, or view all the songs");
 }
 
 function play() {
-  $('#play').on('click', function(e) {
-    $('#songPlaying').html("now playing " + songToPlay + " by " + theArtist);
-    return "now playing " + songToPlay + " by " + theArtist;
-  });
+  $('#play').on('click', handlePlayClick);
+}
+
+function handlePlayClick(e) {
+  $('#songPlaying').html("now playing " + songToPlay + " by " + theArtist);
+  return "now playing " + songToPlay + " by " + theArtist;
 }
 
 function pause() {
