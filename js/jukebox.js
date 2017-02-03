@@ -1,8 +1,8 @@
 $(document).ready(function(){
-  menu();
-  play();
-  pause();
-  show();
+  menu(handleMenuOptions);
+  play(handlePlay);
+  pause(handlePause);
+  show(handleShow);
 });
 
 var jukeboxSongs = { "taylor swift": "in the clear", "beyonce": "halo", "drake": "hotline bling"};
@@ -15,30 +15,38 @@ function randomNumber() {
 }
 
 function menu() {
-  $('#menu').on('click', function(e) {
-    $('#menuOptions').html("You can play a song, pause a song, or view all the songs");
-  });
+  $('#menu').on('click', handleMenuOptions);
+}
+
+function handleMenuOptions(e) {
+  $('#menuOptions').html("You can play a song, pause a song, or view all the songs");
 }
 
 function play() {
-  $('#play').on('click', function(e) {
+  $('#play').on('click', handlePlay);
+}
+
+function handlePlay(e) {
     $('#songPlaying').html("now playing " + songToPlay + " by " + theArtist);
     return "now playing " + songToPlay + " by " + theArtist;
-  });
 }
 
 function pause() {
-  $('#pause').on('click', function(e) {
+  $('#pause').on('click', handlePause);
+}
+
+function handlePause(e) {
     $('#songPaused').html(songToPlay + " is paused");
-  });
 }
 
 function show() {
-  $('#show').on('click', function(e) {
+  $('#show').on('click', handleShow);
+}
+
+function handleShow(e) {
     var songs = "";
     for (var key in jukeboxSongs) {
       songs += jukeboxSongs[key] + " by " + key +  " is available to play. "
     }
     $('#showSongs').html(songs);
-  });
 }
